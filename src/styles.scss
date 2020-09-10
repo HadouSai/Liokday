@@ -1,4 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  //backgrounds
+  --spec-wrapper-primary: #fff;
+  --spec-wrapper-secondary: #e9eaec;
+
+
+  // texto
+  --spec-text-primary: #030303;
+  --spec-text-secondary: #030303;
+  --spec-text-static-gray: #a9abb3;
+  --spec-text-footer: #e9eaec;
+  // texto como titulo
+  --spec-text-tertiary: #606060;
+
+  // icons
+  --spec-icon-primary: #606060;
+
+
+  --secondary-color: #f9f9f9;
+  --icons-color: #6C7B8A;
+  --spec-10-percent-layer: rgba(0, 0, 0, 0.10);
+  --spec-main-color: #07ADA8;
+  --spec-input-text: hsla(0, 0%, 0%, 0.87);
+  --spec-input-background: rgba(0, 0, 0, .04);
+  --spec-size-text-primary: 0.875rem;
+  --spec-scroll: rgba(152, 148, 148, 0.72);
+  --spec-wrapper-color-dark: #1c1e21;
+
+  --spec-background-tertiary: #e9eaec;
+
+  --spec-tag-background: #434343;
+  --spec-line-color: #BBBBBB;
+
+  --spec-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+  --spec-box-shadow-card: 0px 2px 15px 3px #00000020;
+  /* #505254 */
+
+  --spec-secondary-color: #fff;
+
+  --prueba1: #201E50;
+  --prueba2: #4527a0;
+  --secondary-prueba2: #7953d2;
+  --darl: #000070;
+  // borders
+  --spec-border-radius-5: .3125rem;
+
+  // Buttons
+
+}
 
 html,
 body {
@@ -7,6 +56,7 @@ body {
 
 body {
   margin: 0;
+  padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -14,4 +64,37 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.b-scroll {
+  ::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--spec-scroll);
+    border-radius: 4px;
+  }
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+a:visited,
+a:link,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: initial;
+  outline: 0;
+}
+
+.flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

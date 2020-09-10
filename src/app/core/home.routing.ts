@@ -6,10 +6,7 @@ import { MainComponent } from './main/main.component';
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
-    children: [
-      { path: 'todo', loadChildren: () => import('../../pages/todo/todo.module').then(m => m.TodoModule) }
-    ]
+    component: MainComponent
   }
 ];
 

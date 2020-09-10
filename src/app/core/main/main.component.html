@@ -1,0 +1,24 @@
+<div class="main-wrapper">
+  <header class="header">
+    <button mat-icon-button (click)="aside.onToggleAside()">
+      <i class="material-icons">menu</i>
+    </button>
+  </header>
+
+  <aside class="aside">
+    <app-aside #aside></app-aside>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+</div>
+
+
+
+
+

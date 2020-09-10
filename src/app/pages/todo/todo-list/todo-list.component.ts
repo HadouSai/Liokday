@@ -12,6 +12,14 @@ export const ALL_LINKS_QUER = gql`
   }
 `;
 
+export const ALL_LINKS_QUER2 = gql`
+  query users {
+    users {
+      username
+    }
+  }
+`;
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -27,9 +35,11 @@ export class TodoListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.querySubscription = this.apollo.watchQuery<any>({
-      query: ALL_LINKS_QUER
+      query: ALL_LINKS_QUER2
     }).valueChanges.subscribe((response) => {
-      this.data = response.data[`Profile`]
+      //this.data = response.data[`Profile`]
+      console.log(response)
+
     })
   }
 

@@ -1,0 +1,46 @@
+.aside-nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  flex: 1 0 auto;
+  background-color: transparent;
+}
+
+mat-sidenav {
+  width: 260px;
+  height: 100%;
+  background-color: var(--spec-wrapper-primary);
+
+  ::ng-deep .mat-drawer-inner-container {
+    scroll-behavior: smooth;
+  }
+}
+
+.show-aside {
+  right: 0;
+  z-index: 55;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.aside-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 200px 1fr 50px;
+
+  .aside-footer:hover,
+  .aside-main .aside-sections .aside-items:hover {
+    background-color: var(--spec-10-percent-layer);
+
+    span {
+      color: var(--spec-text-primary);
+    }
+
+    i {
+      color: var(--spec-text-primary);
+    }
+  }
+}
