@@ -1,8 +1,12 @@
 <div class="main-wrapper">
   <header class="header">
-    <button mat-icon-button (click)="aside.onToggleAside()">
-      <i class="material-icons">menu</i>
-    </button>
+    <nav class="nav">
+      <app-nav-header></app-nav-header>
+      <button mat-icon-button (click)="aside.onToggleAside()">
+        <i class="material-icons">menu</i>
+      </button>
+    </nav>
+
   </header>
 
   <aside class="aside">

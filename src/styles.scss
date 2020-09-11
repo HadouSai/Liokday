@@ -1,51 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  //backgrounds
+  /* backgrounds */
   --spec-wrapper-primary: #fff;
-  --spec-wrapper-secondary: #e9eaec;
+  --spec-wrapper-secondary: #f9f9f9;
+  --spec-wrapper-tertiary: #e9eaec;
 
+  /* Darktheme */
+  --spec-warpper-primary-inverse: #202020;
+  --spec-wrapper-secondary-inverse: #181818;
+  --spec-wrapper-tertiary-inverse: #1c1e21;
 
-  // texto
+  /* textos */
   --spec-text-primary: #030303;
-  --spec-text-secondary: #030303;
+  --spec-size-text-primary: .875rem;
+  --spec-text-secondary: #606060;
+  --spec-text-disabled: #909090;
   --spec-text-static-gray: #a9abb3;
   --spec-text-footer: #e9eaec;
-  // texto como titulo
+
+  /* textos darktheme */
+  --spec-text-primary-inverse: #fff;
+
+  /* textos como titulo */
   --spec-text-tertiary: #606060;
 
-  // icons
+  /* iconos */
   --spec-icon-primary: #606060;
+  --spec-icon-normal:  #909090;
+  --spec-icon-hover-normal: #606060;
+  --spec-size-icon-primary: 2.5rem;
+  --spec-size-icon-common: 1.25rem;
+  --spec-size-icon-short: 1rem;
+  --spec-icon-inactive: #9c9b9b;
+  --spec-icon-disabled: #ccc;
 
-
-  --secondary-color: #f9f9f9;
-  --icons-color: #6C7B8A;
-  --spec-10-percent-layer: rgba(0, 0, 0, 0.10);
+  /* general */
   --spec-main-color: #07ADA8;
+  --spec-10-percent-layer: rgba(0, 0, 0, 0.10);
+
+  /* inputs */
   --spec-input-text: hsla(0, 0%, 0%, 0.87);
   --spec-input-background: rgba(0, 0, 0, .04);
-  --spec-size-text-primary: 0.875rem;
+
+  /* scroll */
   --spec-scroll: rgba(152, 148, 148, 0.72);
-  --spec-wrapper-color-dark: #1c1e21;
 
-  --spec-background-tertiary: #e9eaec;
-
+  /* tags and lines */
   --spec-tag-background: #434343;
   --spec-line-color: #BBBBBB;
 
+  /* box shadows */
   --spec-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
   --spec-box-shadow-card: 0px 2px 15px 3px #00000020;
-  /* #505254 */
 
-  --spec-secondary-color: #fff;
-
-  --prueba1: #201E50;
-  --prueba2: #4527a0;
-  --secondary-prueba2: #7953d2;
-  --darl: #000070;
-  // borders
+  /* borders */
   --spec-border-radius-5: .3125rem;
 
-  // Buttons
+  /* buttons */
 
 }
 
