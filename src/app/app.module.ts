@@ -11,6 +11,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { GraphqlModule } from './graphql/graphql.module';
+import { StoreModule } from '@ngrx/store';
+
+import { reducers } from './reducers/index.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+
+import { SnackbarModule } from './components/reusables/snackbar/snackbar.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,10 +31,17 @@ import { GraphqlModule } from './graphql/graphql.module';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    GraphqlModule
+    GraphqlModule,
+    SnackbarModule,
+    MatSnackBarModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // guardame los ultimos 25 estados
+      logOnly: environment.production //para no manipular los estados los usuarios
+    })
   ],
   providers: [
-    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler, },
     { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AsideService } from './aside.service';
 import { asideSections } from './aside-default';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/reducers/index.reducers';
 
+import { asideClosed } from '../../../reducers/aside/aside.actions';
 
 @Component({
   selector: 'app-aside',
@@ -14,12 +17,16 @@ export class AsideComponent implements OnInit {
   @ViewChild('sidenav', { static: false }) sidenav: MatSidenav;
 
   opened: boolean;
+  //opened2$: Observable<boolean>;
 
   listItems = asideSections;
 
-  constructor(public asideS: AsideService) { }
+  constructor(private asideS: AsideService, private store: Store<State>) {
+    this.store.select(data => data.asideState.opened).subscribe(c => { if (c) this.onToggleAside(); });
+  }
 
   ngOnInit(): void {
+
   }
 
   /** Abre o cierra el aside menu, agrega una clase para abrir el menu */
@@ -28,10 +35,12 @@ export class AsideComponent implements OnInit {
     document.querySelector('mat-sidenav-container').classList.toggle('show-aside');
   }
 
-  /** Add or remove al abrir o cerrar el Aside Menu */
+  /** Al cerrarce el Aside Menu */
   closeAside = () => {
     document.querySelector('mat-sidenav-container').classList.remove('show-aside');
     document.body.style.overflow = '';
+
+    this.store.dispatch(asideClosed({ asideState: { opened: false } }));
   }
 
   openAside = () => {

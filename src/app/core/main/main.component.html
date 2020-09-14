@@ -2,18 +2,17 @@
   <header class="header">
     <nav class="nav">
       <app-nav-header></app-nav-header>
-      <button mat-icon-button (click)="aside.onToggleAside()">
-        <i class="material-icons">menu</i>
-      </button>
     </nav>
 
   </header>
 
   <aside class="aside">
-    <app-aside #aside></app-aside>
+    <app-aside></app-aside>
   </aside>
 
   <main class="main-content">
+    <button (click)="change()" mat-button>cambiar url</button>
+    <button (click)="home()" mat-button>Home</button>
     <router-outlet></router-outlet>
   </main>
 
@@ -21,8 +20,3 @@
 
   </footer>
 </div>
-
-
-
-
-

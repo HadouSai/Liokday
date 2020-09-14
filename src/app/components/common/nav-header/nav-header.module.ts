@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { NavHeaderService } from "./nav-header.service";
 
 import { NavHeaderComponent } from './nav-header.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [NavHeaderComponent],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatButtonModule],
   exports: [NavHeaderComponent],
-  providers: [NavHeaderService],
+  providers: [NavHeaderService]
 })
 export class NavHeaderModule { }

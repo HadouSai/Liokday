@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/reducers/index.reducers';
+
+import { asideOpened } from '../../../reducers/aside/aside.actions';
+
 
 @Component({
   selector: 'app-nav-header',
@@ -7,13 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit(): void {
+
   }
 
   onToggleAside() {
-
+    this.store.dispatch(asideOpened({ asideState: { opened: true } }));
   }
 
 }

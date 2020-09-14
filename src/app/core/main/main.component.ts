@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  todo() {
+  change() {
     this.routing.navigateByUrl('/todo');
   }
 
