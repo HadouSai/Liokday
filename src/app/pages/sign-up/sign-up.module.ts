@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './sign-up.component';
 import { SignUpRoutingModule } from './sign-up.routing';
+import { MatStepperModule } from '@angular/material/stepper';
+import { CommonImportsModule } from 'src/app/components/common/common-imports.module';
+import { FooterModule } from 'src/app/components/common/footer/footer.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [SignUpComponent],
   imports: [
-    CommonModule,
-    SignUpRoutingModule
+    CommonImportsModule,
+    MatStepperModule,
+    SignUpRoutingModule,
+    FooterModule
   ],
   exports: [SignUpComponent],
   providers: [],

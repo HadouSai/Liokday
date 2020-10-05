@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 
 import { SnackbarModule } from './components/reusables/snackbar/snackbar.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonImportsModule } from './components/common/common-imports.module';
 
 @NgModule({
   declarations: [

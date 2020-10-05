@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './sign-up.component.html',
@@ -6,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigateToHome() {
+    this.router.navigateByUrl('./');
+  }
+
+  navigateToSignIn() {
+    this.router.navigateByUrl('./signin');
   }
 
 }

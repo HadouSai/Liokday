@@ -11,9 +11,6 @@ const routes: Routes = [
       {
         path: 'todo',
         loadChildren: () => import('../pages/todo/todo.module').then(m => m.TodoModule)
-      },{
-        path: 'signup',
-        loadChildren: () => import('../pages/sign-up/sign-up.module').then(m => m.SignUpModule)
       }
     ]
   }
