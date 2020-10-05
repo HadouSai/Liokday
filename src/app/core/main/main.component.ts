@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
   }
 
   change() {
-    this.routing.navigateByUrl('/todo');
+    this.routing.navigateByUrl('/signup');
   }
 
   home() {
