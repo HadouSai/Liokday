@@ -1,0 +1,48 @@
+@mixin ClassReutilizables() {
+  $displays: flex, inline-flex, block, inline-block, grid, inline, none;
+  $justify-content: center, end, start, flex-start, flex-end, space-around, space-between, space-evenly, stretch;
+  $align-items: baseline, center, end, flex-end, flex-start, initial, self-end, self-start, start, stretch;
+  $align-self: baseline, center, end, flex-end, flex-start, initial, self-end, self-start, start, stretch;
+  $flex-directions: column, column-reverse, row, row-reverse;
+  $positions: relative, absolute, fixed, sticky, inherit;
+
+  @each $display in $displays {
+    .d-#{$display} {
+      display: $display;
+    }
+  }
+
+  @each $j-c in $justify-content {
+    .jc-#{$j-c} {
+      justify-content: $j-c;
+    }
+  }
+
+  @each $a-i in $align-items {
+    .ai-#{$a-i} {
+      align-items: $a-i;
+    }
+  }
+
+  @each $a-i in $align-self {
+    .ai-s-#{$a-i} {
+      align-self: $a-i;
+    }
+  }
+
+  @each $flex-direction in $flex-directions {
+    .fd-#{$flex-direction} {
+      flex-direction: $flex-direction;
+    }
+  }
+
+  @each $position in $positions {
+    .p-#{$position} {
+      position: $position;
+    }
+  }
+
+
+}
+
+@include ClassReutilizables();

@@ -7,25 +7,20 @@
 }
 
 .basic-layout {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100vh;
 }
 
-/* urgente crar las clases en sass p[ara reutilizar
-mas las de flex y todas
-
-definir mas los comentarios en el main para el uso de los estilo
-  talves ejemplos
-*/
-
 .basic-header {
   width: 100%;
   height: 90px;
-  display: flex;
-  justify-content: space-between;
   border-bottom: 1px solid var(--spec-line-color);
+
+  button {
+    width: 25px;
+    height: 25px;
+    line-height: 1;
+  }
 }
 
 .simple-main {
@@ -35,7 +30,6 @@ definir mas los comentarios en el main para el uso de los estilo
   flex-grow: 1;
 
   section {
-    display: flex;
     max-width: 520px;
     min-width: 250px;
     height: 400px;

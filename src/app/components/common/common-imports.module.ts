@@ -12,14 +12,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     FormsModule,
     MatButtonModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
-  exports: [],
-  providers: [
+  exports: [
     CommonModule,
     FormsModule,
     MatButtonModule,
     MatTooltipModule,
-    MatProgressSpinnerModule,
-  ]
+    MatProgressSpinnerModule
+  ],
+  providers: []
 })
 export class CommonImportsModule { }
