@@ -1,14 +1,26 @@
-<mat-sidenav-container class="aside-nav-container">
+<mat-sidenav-container class="aside-nav-container" [ngClass]="{'show-aside': showAside}">
   <mat-sidenav class="b-scroll" #sidenav mode="over" (opened)="openAside()" (closed)="closeAside()"
     [fixedBottomGap]="0">
     <div class="aside-container">
-      <div *ngFor="let groupItems of listItems" class="div">
-        <div *ngFor="let item of groupItems.items" class="div">
-          <i class="material-icons"> {{ item.iconName }} </i>
-          <span> {{ item.name }} </span>
+
+      <div class="close-aside d-flex ai-center jc-flex-end">
+        <button mat-icon-button (click)="sidenav.close()">
+          <mat-icon aria-hidden="false" aria-label="{2:label} icon">close</mat-icon>
+        </button>
+      </div>
+
+
+      <div class="c-list-items">
+        <div *ngFor="let groupItems of listItems" class="div">
+
+          <div *ngFor="let item of groupItems.items" class="div">
+            <i class="material-icons"> {{ item.iconName }} </i>
+            <span> {{ item.name }} </span>
+          </div>
+
         </div>
       </div>
+
     </div>
   </mat-sidenav>
 </mat-sidenav-container>
-

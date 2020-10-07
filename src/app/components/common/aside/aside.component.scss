@@ -7,6 +7,14 @@
   background-color: transparent;
 }
 
+.show-aside {
+  right: 0;
+  z-index: 55;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
 mat-sidenav {
   width: 260px;
   height: 100%;
@@ -17,19 +25,15 @@ mat-sidenav {
   }
 }
 
-.show-aside {
-  right: 0;
-  z-index: 55;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-}
-
 .aside-container {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 200px 1fr 50px;
+  grid-template-rows: 60px 1fr;
+
+  .close-aside {
+    padding-right: 24px;
+  }
 
   .aside-footer:hover,
   .aside-main .aside-sections .aside-items:hover {
