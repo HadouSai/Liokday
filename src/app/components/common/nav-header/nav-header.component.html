@@ -1,10 +1,20 @@
 <div class="wrapper-nav-header">
-  <div class="nav-header">
+  <div class="nav-header d-flex ai-center jc-space-between">
     <div class="menu-btn d-flex ai-center">
       <button mat-icon-button (click)="onToggleAside()">
         <i class="material-icons">menu</i>
       </button>
     </div>
 
+    <div class="w-100 d-flex ai-center">
+
+      <div class="">
+        <button mat-button (click)="toSignIn()">Sign in</button>
+      </div>
+
+      <div class="">
+        <button mat-button (click)="toSignUp()">Sign up</button>
+      </div>
+    </div>
   </div>
 </div>

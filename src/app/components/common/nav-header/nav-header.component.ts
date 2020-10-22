@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/reducers/index.reducers';
 
@@ -12,7 +13,7 @@ import { asideOpened } from '../../../reducers/aside/aside.actions';
 })
 export class NavHeaderComponent implements OnInit {
 
-  constructor(private store: Store<State>) { }
+  constructor(private store: Store<State>, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -20,6 +21,14 @@ export class NavHeaderComponent implements OnInit {
 
   onToggleAside() {
     this.store.dispatch(asideOpened({ asideState: { opened: true } }));
+  }
+
+  toSignIn() {
+
+  }
+
+  toSignUp() {
+    this.router.navigateByUrl('/signup');
   }
 
 }

@@ -10,7 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [NavHeaderComponent],
   imports: [
     CommonModule,
-    MatButtonModule],
+    MatButtonModule
+  ],
   exports: [NavHeaderComponent],
   providers: [NavHeaderService]
 })
