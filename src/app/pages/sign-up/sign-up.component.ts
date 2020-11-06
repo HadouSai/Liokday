@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
+  username = '';
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

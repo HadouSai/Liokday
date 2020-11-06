@@ -1,15 +1,16 @@
 <ng-container [ngSwitch]="type">
   <div class="input-custom">
-    <div *ngSwitchCase="'number'">
-      <input type="number" name="" id="">
+    <div *ngSwitchCase="'number'" class="custom-input">
+      <input [(ngModel)]="currentValue" type="number" [placeholder]="placeholder" name="number" [disabled]="idDisabled">
     </div>
 
-    <div *ngSwitchCase="'password'">
-
+    <div *ngSwitchCase="'password'" class="custom-input">
+      <input [(ngModel)]="currentValue" type="password" [placeholder]="placeholder" name="password"
+        [disabled]="idDisabled">
     </div>
 
-    <div *ngSwitchDefault>
-
+    <div *ngSwitchDefault class="custom-input">
+      <input [(ngModel)]="currentValue" type="text" [placeholder]="placeholder" name="text" [disabled]="idDisabled">
     </div>
   </div>
 </ng-container>

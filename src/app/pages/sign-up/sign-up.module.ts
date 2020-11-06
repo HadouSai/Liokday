@@ -4,7 +4,7 @@ import { SignUpRoutingModule } from './sign-up.routing';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CommonImportsModule } from 'src/app/components/common/common-imports.module';
 import { FooterModule } from 'src/app/components/common/footer/footer.module';
-import { MatButtonModule } from '@angular/material/button';
+import { InputsModule } from 'src/app/components/reusables/inputs/inputs.module';
 
 @NgModule({
   declarations: [SignUpComponent],
@@ -12,7 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonImportsModule,
     MatStepperModule,
     SignUpRoutingModule,
-    FooterModule
+    FooterModule,
+    InputsModule
   ],
   exports: [SignUpComponent],
   providers: [],
