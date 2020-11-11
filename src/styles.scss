@@ -17,8 +17,9 @@
   --spec-size-text-secondary: .875rem; //puede variar pero como titulo utilizar este
   --spec-size-text-tertiary: .8125rem; // como texto secundario
   --spec-text-disabled: #909090; //casos cuando no es inaccesible
-  --spec-text-static-gray: #a9abb3; //
+  --spec-text-static-gray: #a9abb3; // placeholders
   --spec-text-footer: #e9eaec; //texto que se utiliza en el footer
+  --spec-input-text: 1rem;
 
   /* textos darktheme */
   --spec-text-primary-inverse: #fff;
@@ -36,6 +37,8 @@
 
   /* general */
   --spec-main-color: #07ADA8;
+  --spec-alert-color: #c00;
+  --spec-alert2-color: #be453d;
   --spec-10-percent-layer: rgba(0, 0, 0, 0.10);
 
   /* inputs */
@@ -119,6 +122,5 @@ a:focus {
 }
 
 .common-btn {
-//pendiente
+  //pendiente
 }
-

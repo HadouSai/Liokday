@@ -8,9 +8,42 @@
 
     <div class="simple-main">
       <section class="d-flex sign-up">
-        <form action="">
-          <app-inputs [type]="'number'" [(ngModel)]="username" name="f-username"></app-inputs>
+
+        <!-- hacer solo el form un componente
+          y el sign como tipo auth para que se pueda hacer sign in y sgin up en el mismo
+        -->
+        <form [formGroup]="form" class="w-100" novalidate (ngSubmit)="submitForm($event)" action="">
+
+          <app-inputs [class.is-success]="usernameFieldValid" [formControlName]="username"
+            [placeholder]="placeholderSignIn">
+          </app-inputs>
+
+          <ng-container *ngIf="usernameField.errors && usernameField.touched">
+            <small *ngIf="usernameField.hasError('required') && usernameField.touched">Este campo es
+              requerido.</small>
+          </ng-container>
+
+          <span *ngIf="!usernameFieldValid" class="icon is-small is-rigth">
+            <i class="fas fa-times"></i>
+          </span>
+          <span *ngIf="usernameFieldValid" class="icon is-small is-rigth">
+            <i class="fas fa-check"></i>
+          </span>
+
+          <!-- PASSWORD -->
+
+          <app-inputs [type]="password" [formControlName]="password"></app-inputs>
+
+          <ng-container *ngIf="passwordField.errors && passwordField.touched">
+            <small *ngIf="passwordField.hasError('required') && passwordField.touched">Este campo es
+              requerido.</small>
+          </ng-container>
+
+          <button type="submit" mat-button>SEND</button>
         </form>
+
+
+
       </section>
     </div>
 

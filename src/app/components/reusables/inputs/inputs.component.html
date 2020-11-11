@@ -1,16 +1,11 @@
-<ng-container [ngSwitch]="type">
-  <div class="input-custom">
-    <div *ngSwitchCase="'number'" class="custom-input">
-      <input [(ngModel)]="currentValue" type="number" [placeholder]="placeholder" name="number" [disabled]="idDisabled">
-    </div>
+<div class="custom-input w-100" [ngStyle]="{'height': height}">
 
-    <div *ngSwitchCase="'password'" class="custom-input">
-      <input [(ngModel)]="currentValue" type="password" [placeholder]="placeholder" name="password"
-        [disabled]="idDisabled">
-    </div>
+  <input [value]="currentValue" [(ngModel)]="currentValue" (input)="onInput($event.target.value)" [type]="type"
+    [placeholder]="placeholder" [name]="'f-' + type" [disabled]="idDisabled">
 
-    <div *ngSwitchDefault class="custom-input">
-      <input [(ngModel)]="currentValue" type="text" [placeholder]="placeholder" name="text" [disabled]="idDisabled">
-    </div>
-  </div>
-</ng-container>
+  <!--
+      Agregar las clases CSS y el contorl con el fromControl
+      [class.is-danger]="field.errors"
+    -->
+
+</div>

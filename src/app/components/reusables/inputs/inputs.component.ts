@@ -1,5 +1,5 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, Input, OnInit, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IInputs, TypeInputs } from './inputs.interface';
 
 @Component({
@@ -18,20 +18,31 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
 
   @Input() type: IInputs = TypeInputs.text;
   @Input() placeholder: string = '';
+  @Input() height: string = '44px';
+  @Input() showValidations = true;
 
-  onChange = (_: any) => { }; //registro del metodo de RegisterOnChande
-  onTouch = (_: any) => { }; //registro del metodo de onTouch
+  onChange = (_: any) => { }; // Registro del metodo RegisterOnChande
+  onTouch = () => { }; // Registro del metodo onTouch
 
   currentValue = null;
   idDisabled: boolean;
+  field: FormControl;
 
   constructor() { }
 
   ngOnInit(): void {
-
+    this.field = new FormControl('', [], []);
   }
 
-  // escribe el valor en el componente por si viene un valor
+  onInput(value: string) {
+    console.log(this.field);
+
+    this.currentValue = value;
+    this.onTouch();
+    this.onChange(this.currentValue);
+  }
+
+  // Escribe el valor en el componente por si viene un valor
   writeValue(value: IInputs): void {
     if (value) {
       this.currentValue = value;
