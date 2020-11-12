@@ -1,11 +1,22 @@
-<div class="custom-input w-100" [ngStyle]="{'height': height}">
+<div class="custom-input w-100" [ngStyle]="{'height': setHeight()}">
 
-  <input [value]="currentValue" [(ngModel)]="currentValue" (input)="onInput($event.target.value)" [type]="type"
-    [placeholder]="placeholder" [name]="'f-' + type" [disabled]="idDisabled">
+  <input [value]="currentValue" autocomplete [(ngModel)]="currentValue" (input)="onInput($event.target.value)"
+    [type]="type" [placeholder]="placeholder" [name]="'f-' + type" [disabled]="isDisabled"
+    [ngStyle]="{'height': isString(height) ? height : '44px'}">
 
-  <!--
-      Agregar las clases CSS y el contorl con el fromControl
-      [class.is-danger]="field.errors"
-    -->
+  <ng-container *ngIf="showValidations && fieldForm">
+    <div class="w-100">
+      <span> Please provide your email. </span>
+      <!--       <span> Please provide a password with more than 5 caracters. </span>
+      <span> Hmm, that email address doesn't look right. </span> -->
+    </div>
+  </ng-container>
+
+  <!--      [class.is-danger]="field.errors"
+    hacer un banco de validaciones de esta manera esta mejor
+    ya que obtengo el form control y no creo 2 que burro ya lo mejore
+    debo saber cual es el error y para quien
+
+  -->
 
 </div>

@@ -1,7 +1,8 @@
 export enum TypeInputs {
   number = 'number',
   text = 'text',
-  password = 'password'
+  password = 'password',
+  email = 'email',
 }
 
-export declare type IInputs = "number" | "text" | 'password';
+export declare type IInputs = 'number' | 'text' | 'password' | 'email';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TypeInputs } from 'src/app/components/reusables/inputs/inputs.interface';
 
 
 export interface CustomFormLogin {
@@ -18,9 +18,10 @@ export class SignUpComponent implements OnInit {
 
   form: FormGroup;
 
-  readonly username = 'username';
+  readonly username = 'email';
   readonly password = 'password';
   readonly placeholderSignIn = 'Email';
+  readonly placeholderPassword = 'Password';
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
     this.buildForm();
@@ -56,19 +57,20 @@ export class SignUpComponent implements OnInit {
 
   submitForm(event: Event) {
     event.preventDefault;
+    console.log(this.form)
 
-    if (this.form.invalid) {
+/*     if (this.form.invalid) {
       this.form.markAllAsTouched();
       alert('debes llenar todo');
       return;
-    }
+    } */
 
 
   }
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      username: ['', [Validators.email, Validators.maxLength(40), Validators.minLength(5)]],
+      email: [''],
       password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(5)]]
     })
 

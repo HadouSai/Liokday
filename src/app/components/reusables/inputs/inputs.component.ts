@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnInit, SimpleChanges } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { IInputs, TypeInputs } from './inputs.interface';
 
 @Component({
@@ -20,22 +20,24 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() height: string = '44px';
   @Input() showValidations = true;
+  @Input() fieldForm: FormControl;
 
   onChange = (_: any) => { }; // Registro del metodo RegisterOnChande
   onTouch = () => { }; // Registro del metodo onTouch
 
   currentValue = null;
-  idDisabled: boolean;
-  field: FormControl;
+  isDisabled: boolean;
+
+  private readonly RegexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.field = new FormControl('', [], []);
+
   }
 
   onInput(value: string) {
-    console.log(this.field);
+    console.log(this.fieldForm);
 
     this.currentValue = value;
     this.onTouch();
@@ -60,7 +62,11 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
   }
 
   setDisabledState(state: boolean): void {
-    this.idDisabled = state;
+    this.isDisabled = state;
   }
+
+  readonly setHeight = () => this.isString(this.height) ? this.showValidations ? `calc(${this.height} + 26px)` : this.height : '44px';
+
+  readonly isString = (string: string) => string && typeof string === 'string' && string.trim().length > 0;
 
 }
