@@ -3,14 +3,13 @@
   <input [value]="currentValue" autocomplete [(ngModel)]="currentValue" (input)="onInput($event.target.value)"
     [type]="type" [placeholder]="placeholder" [name]="'f-' + type" [disabled]="isDisabled"
     [ngStyle]="{'height': isString(height) ? height : '44px'}">
-
+<!--
   <ng-container *ngIf="showValidations && fieldForm">
     <div class="w-100">
-      <span> Please provide your email. </span>
-      <!--       <span> Please provide a password with more than 5 caracters. </span>
-      <span> Hmm, that email address doesn't look right. </span> -->
     </div>
   </ng-container>
+  <span> Please provide your email. </span> -->
+  <!--       <span> Please provide a password with more than 5 caracters. </span> -->
 
   <!--      [class.is-danger]="field.errors"
     hacer un banco de validaciones de esta manera esta mejor
@@ -20,3 +19,15 @@
   -->
 
 </div>
+
+
+<ng-template #emailValidation>
+
+  <ng-container [ngSwitch]="fieldForm.errors">
+    <ng-container *ngFor="let validation of basicValidationField.messages">
+      <span *ngSwitchCase="validation.nameValidator"> {{validation.message}} </span>
+    </ng-container>
+
+  </ng-container>
+
+</ng-template>

@@ -1,5 +1,7 @@
 import { Component, forwardRef, Input, OnInit, SimpleChanges } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { AbstractControlOptions, ControlValueAccessor, FormBuilder, FormControl, NG_VALUE_ACCESSOR, ValidatorFn, Validators } from '@angular/forms';
+import regexValidators from '../../../utils/own-validations/regex-validators';
+import basicValidations from '../../../utils/own-validations/basic-validations';
 import { IInputs, TypeInputs } from './inputs.interface';
 
 @Component({
@@ -28,12 +30,28 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
   currentValue = null;
   isDisabled: boolean;
 
-  private readonly RegexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  typeValidations: AbstractControlOptions;
+  basicValidationField = null;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.getTypeValitadion();
 
+  }
+
+  getTypeValitadion() {
+    if (this.showValidations && !this.fieldForm) return;
+
+    this.basicValidationField = basicValidations.basicInputsV.find(field => field.type === this.type)
+    if (!this.basicValidationField) {
+      return;
+    }
+    this.initFieldForm();
+  }
+
+  initFieldForm() {
+    this.fieldForm = new FormControl('', this.basicValidationField.validations);
   }
 
   onInput(value: string) {
@@ -43,7 +61,7 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
     this.onTouch();
     this.onChange(this.currentValue);
   }
-
+// voy aca intentando que tome las validadiciones de una lista guardada
   // Escribe el valor en el componente por si viene un valor
   writeValue(value: IInputs): void {
     if (value) {

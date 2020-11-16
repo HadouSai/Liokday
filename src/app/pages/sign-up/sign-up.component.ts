@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TypeInputs } from 'src/app/components/reusables/inputs/inputs.interface';
+import { OwnValidations } from 'src/app/utils/own-validations/own-validations';
 
 
 export interface CustomFormLogin {
@@ -18,7 +19,7 @@ export class SignUpComponent implements OnInit {
 
   form: FormGroup;
 
-  readonly username = 'email';
+  readonly username = TypeInputs.email;
   readonly password = 'password';
   readonly placeholderSignIn = 'Email';
   readonly placeholderPassword = 'Password';
@@ -59,16 +60,17 @@ export class SignUpComponent implements OnInit {
     event.preventDefault;
     console.log(this.form)
 
-/*     if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      alert('debes llenar todo');
-      return;
-    } */
+    /*     if (this.form.invalid) {
+          this.form.markAllAsTouched();
+          alert('debes llenar todo');
+          return;
+        } */
 
 
   }
 
   private buildForm() {
+    //validaciones sincronas primero que las asincronas
     this.form = this.formBuilder.group({
       email: [''],
       password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(5)]]
