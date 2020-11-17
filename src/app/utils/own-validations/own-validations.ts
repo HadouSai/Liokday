@@ -5,19 +5,21 @@ export class OwnValidations {
 
   static isYounger(control: AbstractControl) {
     const value = control.value;
-
     if (value < 18) {
       return { isYounger: true };
     }
-
     // si todo bien retorno null
     return null;
   }
 
   static isEmail(control: AbstractControl) {
     const value = control.value;
-    console.log('pase por aca')
     return value.match(RegexValidators.isEmail) ? null : { email: true };
+  }
+
+  static isPassword(control: AbstractControl) {
+    const value = control.value;
+    return value.match(RegexValidators.isPassword) ? null : { password: true };
   }
 
   // Funciones personaliszadas con parametros
@@ -29,11 +31,8 @@ export class OwnValidations {
       if (value < limit) {
         return { isYounger: true };
       }
-
       // si todo bien retorno null
       return null;
-
-
     }
   }
 

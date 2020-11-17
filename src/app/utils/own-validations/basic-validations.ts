@@ -5,11 +5,7 @@ import { OwnValidations } from './own-validations';
 export default {
   basicInputsV: [{
     type: TypeInputs.email,
-    validations: [
-      Validators.required,
-      OwnValidations.isEmail
-    ],
-    messages: [{
+    validator: [{
       nameValidator: 'required',
       message: 'Please provide your email.'
     },
@@ -17,5 +13,20 @@ export default {
       nameValidator: 'email',
       message: ` Hmm, that email address doesn't look right.`
     }]
+  }, {
+    type: TypeInputs.password,
+    validator: [{
+      nameValidator: 'required',
+      message: 'Please provide your password.'
+    },
+    {
+      nameValidator: 'password',
+      message: `The password can't contain blank spaces.`
+    },
+    {
+      nameValidator: 'maxlength',
+      message: `Please set a password within twenty characters.`
+    }]
   }]
 }
+

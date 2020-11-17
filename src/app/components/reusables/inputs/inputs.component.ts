@@ -1,6 +1,5 @@
-import { Component, forwardRef, Input, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractControlOptions, ControlValueAccessor, FormBuilder, FormControl, NG_VALUE_ACCESSOR, ValidatorFn, Validators } from '@angular/forms';
-import regexValidators from '../../../utils/own-validations/regex-validators';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import basicValidations from '../../../utils/own-validations/basic-validations';
 import { IInputs, TypeInputs } from './inputs.interface';
 
@@ -22,7 +21,7 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() height: string = '44px';
   @Input() showValidations = true;
-  @Input() fieldForm: FormControl;
+  @Input() errorMsg: string = '';
 
   onChange = (_: any) => { }; // Registro del metodo RegisterOnChande
   onTouch = () => { }; // Registro del metodo onTouch
@@ -30,38 +29,22 @@ export class InputsComponent implements OnInit, ControlValueAccessor {
   currentValue = null;
   isDisabled: boolean;
 
-  typeValidations: AbstractControlOptions;
   basicValidationField = null;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.getTypeValitadion();
 
-  }
-
-  getTypeValitadion() {
-    if (this.showValidations && !this.fieldForm) return;
-
-    this.basicValidationField = basicValidations.basicInputsV.find(field => field.type === this.type)
-    if (!this.basicValidationField) {
-      return;
-    }
-    this.initFieldForm();
-  }
-
-  initFieldForm() {
-    this.fieldForm = new FormControl('', this.basicValidationField.validations);
   }
 
   onInput(value: string) {
-    console.log(this.fieldForm);
+    //console.log(this.fieldForm);
 
     this.currentValue = value;
     this.onTouch();
     this.onChange(this.currentValue);
   }
-// voy aca intentando que tome las validadiciones de una lista guardada
+
   // Escribe el valor en el componente por si viene un valor
   writeValue(value: IInputs): void {
     if (value) {

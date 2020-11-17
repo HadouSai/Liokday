@@ -2,32 +2,27 @@
 
   <input [value]="currentValue" autocomplete [(ngModel)]="currentValue" (input)="onInput($event.target.value)"
     [type]="type" [placeholder]="placeholder" [name]="'f-' + type" [disabled]="isDisabled"
-    [ngStyle]="{'height': isString(height) ? height : '44px'}">
-<!--
-  <ng-container *ngIf="showValidations && fieldForm">
-    <div class="w-100">
+    [ngClass]="{'error-msg': showValidations && errorMsg}" [ngStyle]="{'height': isString(height) ? height : '44px'}">
+
+  <ng-template [ngIf]="showValidations && errorMsg">
+    <div class="w-100 pt-1">
+      <span> {{ errorMsg }} </span>
     </div>
-  </ng-container>
-  <span> Please provide your email. </span> -->
+  </ng-template>
+
   <!--       <span> Please provide a password with more than 5 caracters. </span> -->
-
-  <!--      [class.is-danger]="field.errors"
-    hacer un banco de validaciones de esta manera esta mejor
-    ya que obtengo el form control y no creo 2 que burro ya lo mejore
-    debo saber cual es el error y para quien
-
-  -->
 
 </div>
 
 
-<ng-template #emailValidation>
+<ng-template #messagesErrorsT>
 
-  <ng-container [ngSwitch]="fieldForm.errors">
+  <!--   <div [ngSwitch]="nameFieldError()" class="w-100">
     <ng-container *ngFor="let validation of basicValidationField.messages">
       <span *ngSwitchCase="validation.nameValidator"> {{validation.message}} </span>
     </ng-container>
+  </div> -->
 
-  </ng-container>
+
 
 </ng-template>

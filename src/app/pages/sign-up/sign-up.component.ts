@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TypeInputs } from 'src/app/components/reusables/inputs/inputs.interface';
 import { OwnValidations } from 'src/app/utils/own-validations/own-validations';
+import { ResolveValidations } from 'src/app/utils/own-validations/resolve-validations';
 
 
 export interface CustomFormLogin {
@@ -23,6 +24,13 @@ export class SignUpComponent implements OnInit {
   readonly password = 'password';
   readonly placeholderSignIn = 'Email';
   readonly placeholderPassword = 'Password';
+
+  resolveValidations = new ResolveValidations();
+
+  errorMsg = {
+    email: '',
+    password: ''
+  };
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
     this.buildForm();
@@ -60,22 +68,21 @@ export class SignUpComponent implements OnInit {
     event.preventDefault;
     console.log(this.form)
 
-    /*     if (this.form.invalid) {
-          this.form.markAllAsTouched();
-          alert('debes llenar todo');
-          return;
-        } */
-
-
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.resolveValidations.basicValidation(this.errorMsg, this.form);
+      console.log(this.errorMsg)
+      return;
+    }
   }
 
   private buildForm() {
     //validaciones sincronas primero que las asincronas
     this.form = this.formBuilder.group({
-      email: [''],
-      password: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(5)]]
+      email: ['', [Validators.required, OwnValidations.isEmail]],
+      password: ['', [Validators.required, OwnValidations.isPassword, Validators.maxLength(20)]]
     })
-
+    //hacer un validador regex password por el trim() los espacios que me dejen
 
   }
 }
