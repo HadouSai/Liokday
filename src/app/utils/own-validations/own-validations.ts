@@ -22,6 +22,11 @@ export class OwnValidations {
     return value.match(RegexValidators.isPassword) ? null : { password: true };
   }
 
+  static isMinLength(control: AbstractControl) {
+    const value = control.value;
+    return value.trim().length > 5 ? null : { minlength: true };
+  }
+
   // Funciones personaliszadas con parametros
   // Closures
   static isYoungerWithParams(limit: number) {

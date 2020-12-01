@@ -66,11 +66,12 @@ export class SignUpComponent implements OnInit {
 
   submitForm(event: Event) {
     event.preventDefault;
-    console.log(this.form)
+    console.log(this.form);
+
+    this.resolveValidations.basicValidation(this.errorMsg, this.form);
 
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      this.resolveValidations.basicValidation(this.errorMsg, this.form);
       console.log(this.errorMsg)
       return;
     }
@@ -80,7 +81,7 @@ export class SignUpComponent implements OnInit {
     //validaciones sincronas primero que las asincronas
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, OwnValidations.isEmail]],
-      password: ['', [Validators.required, OwnValidations.isPassword, Validators.maxLength(20)]]
+      password: ['', [Validators.required, OwnValidations.isMinLength]]
     })
     //hacer un validador regex password por el trim() los espacios que me dejen
 

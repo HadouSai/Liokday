@@ -20,12 +20,8 @@ export default {
       message: 'Please provide your password.'
     },
     {
-      nameValidator: 'password',
-      message: `The password can't contain blank spaces.`
-    },
-    {
-      nameValidator: 'maxlength',
-      message: `Please set a password within twenty characters.`
+      nameValidator: 'minlength',
+      message: `Please set a password with more than 5 characters.`
     }]
   }]
 }
