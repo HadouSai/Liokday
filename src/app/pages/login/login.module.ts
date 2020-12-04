@@ -1,6 +1,6 @@
+import { LoginRoutingModule } from './login.routing';
+import { LoginComponent } from './login.component';
 import { NgModule } from '@angular/core';
-import { SignUpComponent } from './sign-up.component';
-import { SignUpRoutingModule } from './sign-up.routing';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CommonImportsModule } from 'src/app/components/common/common-imports.module';
 import { FooterModule } from 'src/app/components/common/footer/footer.module';
@@ -8,18 +8,19 @@ import { InputsModule } from 'src/app/components/reusables/inputs/inputs.module'
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SignUpComponent],
+  declarations: [
+    LoginComponent
+  ],
   imports: [
     CommonImportsModule,
     ReactiveFormsModule,
     MatStepperModule,
-    SignUpRoutingModule,
     FooterModule,
-    InputsModule
+    InputsModule,
+    LoginRoutingModule
   ],
-  exports: [SignUpComponent],
   providers: [],
 })
-export class SignUpModule {
+export class LoginModule {
 
 }

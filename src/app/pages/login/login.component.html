@@ -1,0 +1,62 @@
+<div class="login-wrapper w-100 d-flex fd-column">
+  <div class="login-wrapper-background"></div>
+
+  <header class="header login-header d-flex ai-center">
+    <button mat-button class="sign-in d-flex jc-center ai-s-center" (click)="home()">Home</button>
+  </header>
+
+  <main class="login-body">
+    <div class="w-100">
+      <div class="login-content w-100 d-flex fd-column">
+        <div class="form-main">
+          <h1>Sign Up</h1>
+
+          <form [formGroup]="form" class="w-100" novalidate (ngSubmit)="submitForm($event)" action="">
+            <div class="w-100">
+              <app-inputs class="pt-4" [type]="username" [formControlName]="username" [errorMsg]="errorMsg.email"
+                [placeholder]="placeholderSignIn"></app-inputs>
+
+              <app-inputs class="pt-4" [type]="password" [formControlName]="password" [errorMsg]="errorMsg.password"
+                [placeholder]="placeholderPassword"></app-inputs>
+            </div>
+
+            <div class="pt-5"></div>
+
+            <button class="btn-sign" type="submit" mat-raised-button>Create Account</button>
+
+            <div class="opts d-flex jc-center bg-white dark:bg-gray-800">
+              <span> Already have an account?</span>
+              <span>Log in</span>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="pt-5 d-flex jc-center">
+          <span>or</span>
+        </div>
+
+        <div class="form-other">
+
+          <div class="w-100 pt-4 g-sign">
+            <button class="w-100" type="submit" mat-button>
+              <i class="fab fa-google"></i>
+              <span>Sign up with Google</span>
+            </button>
+
+            <button class="w-100" type="submit" mat-button>
+              <i class="fab fa-facebook"></i>
+              <span>Sign up with Facebook</span>
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <app-footer></app-footer>
+  </footer>
+</div>

@@ -1,22 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { OwnValidations } from './../../utils/own-validations/own-validations';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TypeInputs } from 'src/app/components/reusables/inputs/inputs.interface';
-import { OwnValidations } from 'src/app/utils/own-validations/own-validations';
-import { ResolveValidations } from 'src/app/utils/own-validations/resolve-validations';
-
-
-export interface CustomFormLogin {
-  username: string;
-  password: string;
-}
+import { ResolveValidations } from './../../utils/own-validations/resolve-validations';
+import { TypeInputs } from './../../components/reusables/inputs/inputs.interface';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class LoginComponent implements OnInit {
+
 
   form: FormGroup;
 
@@ -56,12 +51,8 @@ export class SignUpComponent implements OnInit {
     return this.passwordField.valid;
   }
 
-  navigateToHome() {
+  home() {
     this.router.navigateByUrl('./');
-  }
-
-  navigateToSignIn() {
-    this.router.navigateByUrl('./signin');
   }
 
   submitForm(event: Event) {

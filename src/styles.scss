@@ -70,6 +70,11 @@ body {
   height: 100%;
 }
 
+// maldito bulma me pones un estilo tan feo
+html {
+  overflow-y: auto;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -82,13 +87,13 @@ body {
   box-sizing: border-box;
 }
 
-.b-scroll {
-  ::-webkit-scrollbar {
+.custom-scroll {
+  &::-webkit-scrollbar {
     height: 6px;
     width: 6px;
   }
 
-  ::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background-color: var(--spec-scroll);
     border-radius: 4px;
   }

@@ -28,7 +28,7 @@ export class NavHeaderComponent implements OnInit {
   }
 
   toSignUp() {
-    this.router.navigateByUrl('/signup');
+    this.router.navigateByUrl('/login');
   }
 
 }

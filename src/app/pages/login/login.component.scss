@@ -1,0 +1,101 @@
+:host {
+  display: flex;
+  height: 100%;
+}
+
+.login-wrapper {
+  min-height: 100%;
+  background-color: var(--spec-wrapper-secondary);
+}
+
+.header {
+  height: 66px;
+}
+
+.login-body {
+  padding: 0 5%;
+}
+
+.login-content {
+  padding: 24px 0;
+}
+
+.form-main {
+  h1 {
+    color: var(--spec-text-primary);
+    font-size: 32px;
+    margin-bottom: 28px;
+    font-weight: 700;
+  }
+
+  .btn-sign {
+    width: 100%;
+    height: 44px;
+    background-color: var(--spec-main-color);
+    border-color: var(--spec-main-color);
+    color: var(--spec-text-primary-inverse);
+    font-size: var(--spec-input-text);
+  }
+
+  .opts {
+    padding-top: 16px;
+
+    span {
+      font-size: var(--spec-size-text-tertiary);
+    }
+
+    span:nth-child(1) {
+      color: var(--spec-text-static-gray);
+    }
+
+    span:nth-child(2) {
+      padding-left: 6px;
+      color: rgb(17, 17, 221);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+}
+
+
+.form-other {
+  padding-top: 16px;
+
+  .g-sign {
+
+    button {
+      margin-bottom: 6px;
+    }
+
+
+    .fa-google,
+    .fa-facebook {
+      //background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+      // -webkit-background-clip: text;
+      //background-clip: text;
+      color: inherit;
+      font-size: 1.3rem;
+      margin-right: 14px;
+    }
+  }
+
+}
+
+.footer {
+  margin-top: auto;
+  height: 162px;
+  background-color: var(--spec-wrapper-tertiary);
+}
+
+
+// cklases para manejar con tailwaind
+
+
+.pt-4 {
+  padding-top: 7px;
+}
+
+.pt-5 {
+  padding-top: 12px;
+}

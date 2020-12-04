@@ -13,10 +13,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  change() {
-    this.routing.navigateByUrl('/signup');
-  }
-
   home() {
     this.routing.navigateByUrl('');
 
