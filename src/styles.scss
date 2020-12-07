@@ -4,11 +4,13 @@
   --spec-wrapper-primary: #fff; //totalmente blanco
   --spec-wrapper-secondary: #f9f9f9; // utilizado en el header como youtube, tiene un poco de gris
   --spec-wrapper-tertiary: #e9eaec; //utilizado como en footers tiene mucho gris
-
+  --spec-wrapper-login: #f9f9f9;
   /* Darktheme inversos de los anteriores */
   --spec-warpper-primary-inverse: #202020;
   --spec-wrapper-secondary-inverse: #181818;
   --spec-wrapper-tertiary-inverse: #1c1e21;
+  --spec-wrapper-login-inverse: rgba(0,0,0,.75);
+
 
   /* textos */
   --spec-text-primary: #030303; //textos comunes

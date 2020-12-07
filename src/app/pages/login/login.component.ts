@@ -20,6 +20,12 @@ export class LoginComponent implements OnInit {
   readonly placeholderSignIn = 'Email';
   readonly placeholderPassword = 'Password';
 
+
+  readonly titleLogin = 'Sign Up';
+  readonly alreadyAccountText = 'Already have an account?';
+  readonly createOrLoginText = `Log in`;
+  readonly btnTextLogin = 'Create Account';
+
   resolveValidations = new ResolveValidations();
 
   errorMsg = {

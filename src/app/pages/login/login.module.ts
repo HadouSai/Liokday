@@ -6,6 +6,7 @@ import { CommonImportsModule } from 'src/app/components/common/common-imports.mo
 import { FooterModule } from 'src/app/components/common/footer/footer.module';
 import { InputsModule } from 'src/app/components/reusables/inputs/inputs.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputsModule,
     LoginRoutingModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
 })
 export class LoginModule {
 

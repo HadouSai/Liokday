@@ -1,7 +1,7 @@
 <div class="login-wrapper w-100 d-flex fd-column">
   <div class="login-wrapper-background"></div>
 
-  <header class="header login-header d-flex ai-center">
+  <header class="header login-header d-flex jc-flex-end">
     <button mat-button class="sign-in d-flex jc-center ai-s-center" (click)="home()">Home</button>
   </header>
 
@@ -9,7 +9,7 @@
     <div class="w-100">
       <div class="login-content w-100 d-flex fd-column">
         <div class="form-main">
-          <h1>Sign Up</h1>
+          <h1> {{ titleLogin }} </h1>
 
           <form [formGroup]="form" class="w-100" novalidate (ngSubmit)="submitForm($event)" action="">
             <div class="w-100">
@@ -22,11 +22,11 @@
 
             <div class="pt-5"></div>
 
-            <button class="btn-sign" type="submit" mat-raised-button>Create Account</button>
+            <button class="btn-sign" type="submit" mat-raised-button> {{ btnTextLogin }} </button>
 
             <div class="opts d-flex jc-center bg-white dark:bg-gray-800">
-              <span> Already have an account?</span>
-              <span>Log in</span>
+              <span> {{ alreadyAccountText }} </span>
+              <span> {{ createOrLoginText }} </span>
             </div>
 
           </form>
